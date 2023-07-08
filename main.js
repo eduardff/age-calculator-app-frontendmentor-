@@ -1,4 +1,4 @@
-import { ageCalculator } from './counter';
+import { ageCalculator } from './calculator';
 import './style.scss';
 ageCalculator();
 
