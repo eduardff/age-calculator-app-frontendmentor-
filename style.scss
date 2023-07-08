@@ -1,0 +1,170 @@
+// reset
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+$breakpoints: (
+  // 640px
+  small: 40em,
+  // 1040px
+  medium: 65em
+);
+@mixin mq($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (min-width: map-get($breakpoints,$size)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $size) {
+      @content;
+    }
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: hsl(0, 0%, 86%);
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word; // sirve desbordar textos largos
+  // hyphens: auto; esto agrega giones al cortar una palabra
+}
+// calculator
+
+.container {
+  // width: 100%;
+  height: 100vh;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+.calculator {
+  display: grid;
+  gap: 4rem;
+  // margin-block-start: 5rem;
+  padding-block: 3em;
+  padding-inline: max(4vw, 1em);
+  background-color: hsl(0, 0%, 100%);
+  margin-inline: auto;
+  width: clamp(320px, 95vw, 730px);
+  border-radius: 1em;
+  border-bottom-right-radius: 5em;
+
+  @include mq(small) {
+    gap: 3rem;
+    border-bottom-right-radius: 10em;
+  }
+  &__inputs {
+    display: flex;
+    gap: 1.5em;
+    color: hsl(0, 1%, 44%);
+    label {
+      font-size: 0.8em;
+      letter-spacing: 0.3ch;
+    }
+    input {
+      width: min(24vw, 9rem);
+      height: min(13vw, 4rem);
+      display: block;
+      padding: 0.8em;
+      // border: none;
+      border: 1px solid hsl(0, 0%, 86%);
+      border-radius: 0.5em;
+      font-size: 1.3em;
+      &:focus {
+        border-color: hsl(259, 100%, 65%);
+        outline: none;
+      }
+    }
+  }
+  &__line {
+    background-color: hsl(0, 0%, 86%);
+    height: 2px;
+    position: relative;
+    width: min(600px, 100%);
+  }
+  &__button {
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: auto;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100vw;
+    border: none;
+    background-color: hsl(259, 100%, 65%);
+    outline: none;
+    img {
+      width: 50%;
+      margin-inline: auto;
+    }
+    @include mq(small) {
+      width: 90px;
+      height: 90px;
+      inset: 0 0 0 auto;
+    }
+    &:hover {
+      background-color: #000;
+    }
+  }
+  &__text {
+    font-size: clamp(4rem, (3rem + 5vw), 6rem);
+    font-style: italic;
+    font-weight: 800;
+    p {
+      line-height: clamp(71px, 14vw, 105px);
+    }
+    span {
+      color: hsl(259, 100%, 65%);
+    }
+  }
+  small {
+    font-style: italic;
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.8rem);
+  }
+}
+.show-error {
+  color: hsl(0, 100%, 67%);
+}
