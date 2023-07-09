@@ -140,6 +140,11 @@ const ageCalculator = () => {
       ) {
         ageInYears--;
       }
+      // if (ageInYears > 0) {
+      //   $textYear.textContent = ageInYears;
+      // } else {
+      //   $textYear.textContent = '';
+      // }
       $textYear.textContent = ageInYears;
     };
     const showMonthsLife = () => {
@@ -153,7 +158,11 @@ const ageCalculator = () => {
         // ageInMonths += 12;
         ageInMonths = ageInMonths + 12;
       }
-
+      // if (ageInMonths > 0) {
+      //   $textMonths.textContent = ageInMonths;
+      // } else {
+      //   $textMonths.textContent = '';
+      // }
       $textMonths.textContent = ageInMonths;
     };
     const showDaysLife = () => {
@@ -167,15 +176,30 @@ const ageCalculator = () => {
         ).getDate();
         ageInDays = daysInPrevMonth - birthDay + todayDay;
       }
+      // if (ageInDays > 0) {
+      //   $textDays.textContent = ageInDays;
+      // } else {
+      //   $textDays.textContent = '';
+      // }
       $textDays.textContent = ageInDays;
     };
-
-    // if (validationsValids) showYearsLife();
+    // si el contenido de entrada es válido entonces ejcuta las funciones
+    // si no deja los campos de texto como estaban
+    if (validationsValids) {
+      showYearsLife();
+      showMonthsLife();
+      showDaysLife();
+    } else {
+      $textYear.textContent = '--';
+      $textMonths.textContent = '--';
+      $textDays.textContent = '--';
+    }
+    // validationsValids && showYearsLife();
     // showMonthsLife();
     // showDaysLife();
-    validationsValids && showYearsLife();
-    showMonthsLife();
-    showDaysLife();
+    // !validationsValids && ($textYear.textContent = '--');
+    // !validationsValids && ($textMonths.textContent = '--');
+    // !validationsValids && ($textDays.textContent = '--');
   });
 };
 export { ageCalculator };
