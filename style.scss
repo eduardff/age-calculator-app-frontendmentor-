@@ -72,16 +72,18 @@ h6 {
   // hyphens: auto; esto agrega giones al cortar una palabra
 }
 // calculator
-
-// .container {
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-// }
+@include mq(small) {
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
 .calculator {
   display: grid;
   gap: 4rem;
-  margin-block-start: 5rem;
+  margin-block-start: 4rem;
+  padding-block-end: 4rem;
   padding-block: 3em;
   padding-inline: max(4vw, 1em);
   background-color: hsl(0, 0%, 100%);
