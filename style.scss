@@ -73,17 +73,15 @@ h6 {
 }
 // calculator
 
-.container {
-  // width: 100%;
-  height: 100vh;
-  display: flex;
-  // justify-content: center;
-  align-items: center;
-}
+// .container {
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+// }
 .calculator {
   display: grid;
   gap: 4rem;
-  // margin-block-start: 5rem;
+  margin-block-start: 5rem;
   padding-block: 3em;
   padding-inline: max(4vw, 1em);
   background-color: hsl(0, 0%, 100%);
@@ -150,7 +148,8 @@ h6 {
     }
   }
   &__text {
-    font-size: clamp(4rem, (3rem + 5vw), 6rem);
+    // font-size: clamp(2rem, (3rem + 5vw), 6rem);
+    font-size: clamp(3rem, 1rem + 10vw, 5rem);
     font-style: italic;
     font-weight: 800;
     p {
