@@ -77,13 +77,15 @@ h6 {
     height: 100vh;
     display: flex;
     align-items: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
 }
 .calculator {
   display: grid;
   gap: 4rem;
   margin-block-start: 4rem;
-  padding-block-end: 4rem;
+  margin-block-end: 4rem;
   padding-block: 3em;
   padding-inline: max(4vw, 1em);
   background-color: hsl(0, 0%, 100%);
